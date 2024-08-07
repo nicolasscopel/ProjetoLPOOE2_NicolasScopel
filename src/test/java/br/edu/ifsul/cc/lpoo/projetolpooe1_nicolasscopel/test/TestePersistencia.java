@@ -156,7 +156,7 @@ public class TestePersistencia {
         locacoes.add(l1);
         locacoes.add(l2);
         
-        v1.setLocacoes(locacoes);
+        //v1.setLocacoes(locacoes);
         jpa.persist(v1);
        // jpa.persist(v2); //TIRAR COMENTARIO PARA MUDAR O TESTE 3
         

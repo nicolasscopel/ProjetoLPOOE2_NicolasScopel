@@ -88,6 +88,7 @@ public class Locacao implements Serializable{
 
     public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
+        this.veiculo.addLocacao(this);
     }
     
     

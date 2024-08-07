@@ -100,10 +100,6 @@ public class Veiculo implements Serializable{
         return locacoes;
     }
 
-    public void setLocacoes(Collection<Locacao> locacoes) {
-        this.locacoes = locacoes;
-    }
-
     public Proprietario getProprietario() {
         return proprietario;
     }
@@ -114,7 +110,7 @@ public class Veiculo implements Serializable{
     
      public void addLocacao(Locacao locacao) {
         locacoes.add(locacao);
-        locacao.setVeiculo(this);
+        
     }
 
     public void removeLocacao(Locacao locacao) {
