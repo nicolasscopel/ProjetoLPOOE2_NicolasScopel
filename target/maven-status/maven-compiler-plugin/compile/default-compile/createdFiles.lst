@@ -1,0 +1,8 @@
+br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\dao\PersistenciaJPA.class
+br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Cor.class
+br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Locacao.class
+br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\ProjetoLPOOE1_NicolasScopel.class
+br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Proprietario.class
+br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\dao\InterfacePersistencia.class
+br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Veiculo.class
+br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Marca.class
