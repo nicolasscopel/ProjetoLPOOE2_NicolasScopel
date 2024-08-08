@@ -1,8 +1,11 @@
-C:\Users\20222PF.CC0019\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Locacao.java
-C:\Users\20222PF.CC0019\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\ProjetoLPOOE1_NicolasScopel.java
-C:\Users\20222PF.CC0019\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Cor.java
-C:\Users\20222PF.CC0019\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\dao\PersistenciaJPA.java
-C:\Users\20222PF.CC0019\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Veiculo.java
-C:\Users\20222PF.CC0019\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Proprietario.java
-C:\Users\20222PF.CC0019\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\dao\InterfacePersistencia.java
-C:\Users\20222PF.CC0019\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Marca.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Veiculo.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\view\TelaEditarProprietario.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Proprietario.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\dao\InterfacePersistencia.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Locacao.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\view\TelaCadastroProprietario.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\ProjetoLPOOE1_NicolasScopel.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Marca.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\model\Cor.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\dao\PersistenciaJPA.java
+C:\Users\Nicolas Scopel\Desktop\ProjetoLPOOE2_NicolasScopel\src\main\java\br\edu\ifsul\cc\lpoo\projetolpooe1_nicolasscopel\view\TelaNovoProprietario.java

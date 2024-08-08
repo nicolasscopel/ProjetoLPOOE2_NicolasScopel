@@ -42,6 +42,7 @@ public class Proprietario implements Serializable{
     private String telefone;
 
     public Proprietario() {
+        
     }
 
     public Integer getId() {
@@ -91,6 +92,13 @@ public class Proprietario implements Serializable{
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    @Override
+    public String toString() {
+        return  nome ;
+    }
+    
+   
     
     
 

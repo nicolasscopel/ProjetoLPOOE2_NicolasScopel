@@ -4,18 +4,50 @@
  */
 package br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.view;
 
+import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.dao.PersistenciaJPA;
+import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Proprietario;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 20222PF.CC0019
  */
 public class TelaCadastroProprietario extends javax.swing.JFrame {
 
+    DefaultListModel<Proprietario> mascaraItemLista = new DefaultListModel<>();
+    
     /**
      * Creates new form TelaCadastroProprietario
      */
     public TelaCadastroProprietario() {
         initComponents();
+        
+        lstProprietarios.clearSelection();
+        lstProprietarios.setModel(mascaraItemLista);
+        
+        listarProprietarios();
     }
+    
+    private void listarProprietarios() {
+
+        PersistenciaJPA jpa = new PersistenciaJPA();
+        jpa.conexaoAberta();
+
+        List<Proprietario> proprietarios = jpa.getProprietarios();
+        mascaraItemLista.clear();
+
+        for (Proprietario prop : proprietarios) {
+            mascaraItemLista.addElement(prop);
+
+        }
+        lstProprietarios.setModel(mascaraItemLista);
+        jpa.fecharConexao();
+    }
+    
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,7 +62,7 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtBuscaNome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lstProprietarios = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         btnNovoProprietario = new javax.swing.JButton();
         btnEditarProprietario = new javax.swing.JButton();
@@ -38,6 +70,7 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
         btnCancelarProprietario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 153, 0));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -45,18 +78,44 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
 
         jLabel1.setText("Pesquisar via Nome: ");
 
-        jScrollPane1.setViewportView(jList1);
+        txtBuscaNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscaNomeKeyReleased(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(lstProprietarios);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("LISTA PROPRIETÁRIOS");
 
         btnNovoProprietario.setText("Novo");
+        btnNovoProprietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoProprietarioActionPerformed(evt);
+            }
+        });
 
         btnEditarProprietario.setText("Editar");
+        btnEditarProprietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarProprietarioActionPerformed(evt);
+            }
+        });
 
         btnExcluirProprietario.setText("Excluir");
+        btnExcluirProprietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirProprietarioActionPerformed(evt);
+            }
+        });
 
         btnCancelarProprietario.setText("Cancelar");
+        btnCancelarProprietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarProprietarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,18 +143,18 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(168, 168, 168)
                         .addComponent(jLabel6)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(txtBuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,6 +169,90 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNovoProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProprietarioActionPerformed
+        // TODO add your handling code here:
+        
+        TelaNovoProprietario novo = new TelaNovoProprietario(this,true);
+        novo.setVisible(true);
+        
+        listarProprietarios();
+    }//GEN-LAST:event_btnNovoProprietarioActionPerformed
+
+    private void txtBuscaNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaNomeKeyReleased
+        
+        // TODO add your handling code here:
+        String textoBusca = txtBuscaNome.getText().trim();
+        
+        if(textoBusca.isEmpty()){
+            //return;
+        }
+                
+        PersistenciaJPA jpa = new PersistenciaJPA();
+        jpa.conexaoAberta();
+
+        List<Proprietario> proprietarios = jpa.getProprietarios(textoBusca);
+        mascaraItemLista.clear();
+
+        for (Proprietario Modalidade : proprietarios) {
+            mascaraItemLista.addElement(Modalidade);
+
+        }
+        lstProprietarios.setModel(mascaraItemLista);
+        jpa.fecharConexao();
+         
+    }//GEN-LAST:event_txtBuscaNomeKeyReleased
+
+    private void btnCancelarProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProprietarioActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCancelarProprietarioActionPerformed
+
+    private void btnEditarProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProprietarioActionPerformed
+        
+        Proprietario proprietarioSelecionado = lstProprietarios.getSelectedValue();
+        
+        if(proprietarioSelecionado != null){
+            
+            TelaEditarProprietario editado = new TelaEditarProprietario(this, true);
+            editado.setProprietario(proprietarioSelecionado);
+            editado.setVisible(true);
+            listarProprietarios();
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Nenhum Proprietario Selecionado");
+            
+        }
+    }//GEN-LAST:event_btnEditarProprietarioActionPerformed
+
+    private void btnExcluirProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProprietarioActionPerformed
+       // TODO add your handling code here:
+        Proprietario proprietarioSelecionado = lstProprietarios.getSelectedValue();
+        PersistenciaJPA jpa = new PersistenciaJPA();
+        
+        if(proprietarioSelecionado != null){
+            int confirmPanel = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que deseja remover a modalidade? " + proprietarioSelecionado);
+
+        if (confirmPanel == JOptionPane.YES_OPTION) {
+
+            try {
+
+                jpa.conexaoAberta();
+                jpa.remover(proprietarioSelecionado);
+                jpa.fecharConexao();
+                listarProprietarios();
+            } catch (Exception ex) {
+                System.out.println("Erro ao remover proprietario selecionado!");
+
+            } finally {
+                jpa.fecharConexao();
+            }
+
+        }
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Nenhum proprietario selecionado! ");
+        }
+    }//GEN-LAST:event_btnExcluirProprietarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,6 +280,13 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaCadastroProprietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -154,8 +304,8 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<Proprietario> lstProprietarios;
     private javax.swing.JTextField txtBuscaNome;
     // End of variables declaration//GEN-END:variables
 }
