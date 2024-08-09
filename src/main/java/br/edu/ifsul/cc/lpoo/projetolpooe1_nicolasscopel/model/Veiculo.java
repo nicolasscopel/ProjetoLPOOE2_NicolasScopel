@@ -33,7 +33,7 @@ public class Veiculo implements Serializable{
     private Integer id;
     
     @Column(nullable = false, length = 4)
-    private Integer ano;
+    private String ano;
     
     @Column(nullable = false)
     private String modelo;
@@ -64,11 +64,11 @@ public class Veiculo implements Serializable{
         this.id = id;
     }
 
-    public Integer getAno() {
+    public String getAno() {
         return ano;
     }
 
-    public void setAno(Integer ano) {
+    public void setAno(String ano) {
         this.ano = ano;
     }
 

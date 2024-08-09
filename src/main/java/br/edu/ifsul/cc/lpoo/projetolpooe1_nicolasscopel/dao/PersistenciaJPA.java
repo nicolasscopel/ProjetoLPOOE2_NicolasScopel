@@ -137,6 +137,7 @@ public class PersistenciaJPA implements InterfacePersistencia {
             return null;
         }
     }
+    
     //PESQUISA  VEICULOS
     public List<Veiculo> getVeiculos(String texto) {
         EntityManager em = getEntityManager();

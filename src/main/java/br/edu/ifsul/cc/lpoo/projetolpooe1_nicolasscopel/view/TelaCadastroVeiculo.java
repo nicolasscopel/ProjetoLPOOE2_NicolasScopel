@@ -9,6 +9,7 @@ import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Veiculo;
 import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Proprietario;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -84,10 +85,25 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lstVeiculos);
 
         btnNovoVeiculo.setText("Novo");
+        btnNovoVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoVeiculoActionPerformed(evt);
+            }
+        });
 
         btnEditarVeiculo.setText("Editar");
+        btnEditarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarVeiculoActionPerformed(evt);
+            }
+        });
 
         btnRemoverVeiculo.setText("Remover");
+        btnRemoverVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverVeiculoActionPerformed(evt);
+            }
+        });
 
         btnCancelarVeiculo.setText("Cancelar");
         btnCancelarVeiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +192,62 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         lstVeiculos.setModel(mascaraItemLista);
         jpa.fecharConexao();
     }//GEN-LAST:event_txtBuscaNomeKeyReleased
+
+    private void btnNovoVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoVeiculoActionPerformed
+        TelaNovoVeiculo novo = new TelaNovoVeiculo(this, true);
+        novo.setVisible(true);
+        
+        listarVeiculos();
+    }//GEN-LAST:event_btnNovoVeiculoActionPerformed
+
+    private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
+        
+        // TODO add your handling code here:
+        Veiculo veiculoSelecionado = lstVeiculos.getSelectedValue();
+        PersistenciaJPA jpa = new PersistenciaJPA();
+        
+        if(veiculoSelecionado != null){
+            int confirmPanel = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que deseja remover o veiculo " + veiculoSelecionado + " ?");
+
+        if (confirmPanel == JOptionPane.YES_OPTION) {
+
+            try {
+
+                jpa.conexaoAberta();
+                jpa.remover(veiculoSelecionado);
+                jpa.fecharConexao();
+                listarVeiculos();
+            } catch (Exception ex) {
+                System.out.println("Erro ao remover veiculo selecionado!");
+
+            } finally {
+                jpa.fecharConexao();
+            }
+
+        }
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Nenhum veiculo selecionado! ");
+        }
+    }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
+
+    private void btnEditarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarVeiculoActionPerformed
+        
+        Veiculo veiculoSelecionado = lstVeiculos.getSelectedValue();
+        
+        if(veiculoSelecionado != null){
+            
+            TelaEditarVeiculo editado = new TelaEditarVeiculo(this, true);
+            editado.setVeiculo(veiculoSelecionado);
+            editado.setVisible(true);
+            listarVeiculos();
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Nenhum Veiculo Selecionado");
+            
+        }
+        
+    }//GEN-LAST:event_btnEditarVeiculoActionPerformed
 
     /**
      * @param args the command line arguments

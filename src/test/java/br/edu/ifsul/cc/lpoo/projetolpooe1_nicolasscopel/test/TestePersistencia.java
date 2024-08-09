@@ -63,7 +63,7 @@ public class TestePersistencia {
         Veiculo v = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 1
         v.setCor(Cor.PRETO); //SETANDO COR
         v.setMarca(Marca.VOLKSWAGEN); //SETANDO MARCA
-        v.setAno(2018);
+        v.setAno("2018");
         v.setModelo("Polo");
         v.setProprietario(p);       
         jpa.persist(v);
@@ -72,7 +72,7 @@ public class TestePersistencia {
         v = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 2
         v.setCor(Cor.PRETO); //SETANDO COR
         v.setMarca(Marca.VOLKSWAGEN); //SETANDO MARCA
-        v.setAno(2018);
+        v.setAno("2018");
         v.setModelo("Jetta");
         v.setProprietario(p);
         jpa.persist(v);
@@ -96,7 +96,7 @@ public class TestePersistencia {
         Veiculo v = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 1
         v.setCor(Cor.PRETO); //SETANDO COR
         v.setMarca(Marca.VOLKSWAGEN); //SETANDO MARCA
-        v.setAno(2018);
+        v.setAno("2018");
         v.setModelo("Polo");
         v.setProprietario(p);       
         jpa.persist(v);
@@ -128,14 +128,14 @@ public class TestePersistencia {
         Veiculo v1 = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 1
         v1.setCor(Cor.PRETO); //SETANDO COR
         v1.setMarca(Marca.VOLKSWAGEN); //SETANDO MARCA
-        v1.setAno(2018);
+        v1.setAno("2018");
         v1.setModelo("Polo");
         v1.setProprietario(p1);   
         
         Veiculo v2 = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 2
         v2.setCor(Cor.BRANCO); //SETANDO COR
         v2.setMarca(Marca.VOLKSWAGEN); //SETANDO MARCA
-        v2.setAno(2012);
+        v2.setAno("2012");
         v2.setModelo("Jetta");
         v2.setProprietario(p1);  
          
@@ -194,28 +194,28 @@ public class TestePersistencia {
         Veiculo v1prop1 = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 1 PROP 1
         v1prop1.setCor(Cor.PRETO); //SETANDO COR
         v1prop1.setMarca(Marca.VOLKSWAGEN); //SETANDO MARCA
-        v1prop1.setAno(2018);
+        v1prop1.setAno("2018");
         v1prop1.setModelo("Polo");
         v1prop1.setProprietario(p1);   
         
         Veiculo v2prop1 = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 2 PROP 1
         v2prop1.setCor(Cor.BRANCO); //SETANDO COR
         v2prop1.setMarca(Marca.VOLKSWAGEN); //SETANDO MARCA
-        v2prop1.setAno(2012);
+        v2prop1.setAno("2012");
         v2prop1.setModelo("Jetta");
         v2prop1.setProprietario(p1);  
         
         Veiculo v1prop2 = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 1 PROP 2
         v1prop2.setCor(Cor.AZUL); //SETANDO COR
         v1prop2.setMarca(Marca.FORD); //SETANDO MARCA
-        v1prop2.setAno(2018);
+        v1prop2.setAno("2018");
         v1prop2.setModelo("KA");
         v1prop2.setProprietario(p2);  
         
         Veiculo v2prop2 = new Veiculo(); //CRIANDO E PERSISTINDO VEICULO 2 PROP 2
         v2prop2.setCor(Cor.VERMELHO); //SETANDO COR
         v2prop2.setMarca(Marca.FORD); //SETANDO MARCA
-        v2prop2.setAno(2024);
+        v2prop2.setAno("2024");
         v2prop2.setModelo("RANGER");
         v2prop2.setProprietario(p2); 
         

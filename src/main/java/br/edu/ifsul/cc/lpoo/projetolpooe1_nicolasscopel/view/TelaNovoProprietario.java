@@ -169,6 +169,7 @@ public class TelaNovoProprietario extends javax.swing.JDialog {
        novo.setEmail(txtEmail.getText());
        
         try {
+            jpa.conexaoAberta();
             jpa.persist(novo);
             System.out.println("Proprietario " + txtNome.getText() + " adicionado!");
             dispose();
