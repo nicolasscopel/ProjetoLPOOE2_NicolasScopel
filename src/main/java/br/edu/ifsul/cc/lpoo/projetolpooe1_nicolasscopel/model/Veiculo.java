@@ -117,6 +117,14 @@ public class Veiculo implements Serializable{
         locacoes.remove(locacao);
         locacao.setVeiculo(null);
     }
+
+    @Override
+    public String toString() {
+        return modelo ;
+    }
+    
+    
+    
     
     
 }
