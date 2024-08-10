@@ -233,7 +233,7 @@ public class TelaEditarVeiculo extends javax.swing.JDialog {
 
                 jpa.conexaoAberta();
                 Veiculo editado = (Veiculo)jpa.find(Veiculo.class, veiculo.getId());
-                
+           
                editado.setAno(txtAnoVeiculo.getText());
                editado.setModelo(txtModeloVeiculo.getText());
                editado.setCor((Cor)comboCorVeiculo.getSelectedItem());

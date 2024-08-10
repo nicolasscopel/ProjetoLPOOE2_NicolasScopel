@@ -6,6 +6,7 @@ package br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model;
 
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -88,8 +89,20 @@ public class Locacao implements Serializable{
 
     public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
-        this.veiculo.addLocacao(this);
+        //this.veiculo.addLocacao(this);
     }
+
+    private String calendarToString(Calendar calendar) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // Define o formato da data
+        return sdf.format(calendar.getTime());
+    }
+
+    @Override
+    public String toString() {
+        
+        return "Locacao " + id + " {dataEntrada = " + calendarToString(dataEntrada) + ", veiculo = " + veiculo.getModelo() + '}';
+    }
+    
     
     
 }

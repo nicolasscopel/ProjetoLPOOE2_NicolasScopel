@@ -7,6 +7,7 @@ package br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -46,7 +47,7 @@ public class Veiculo implements Serializable{
     @Enumerated(EnumType.STRING)
     private Marca marca; // ENUM
     
-    @OneToMany(mappedBy = "veiculo")
+    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Locacao> locacoes = new ArrayList<>() ; //AGREGAÇÃO
     
     @ManyToOne
@@ -100,16 +101,24 @@ public class Veiculo implements Serializable{
         return locacoes;
     }
 
+    public void setLocacoes(Collection<Locacao> locacoes) {
+        this.locacoes = locacoes;
+    }
+    
     public Proprietario getProprietario() {
         return proprietario;
     }
 
+    
     public void setProprietario(Proprietario proprietario) {
         this.proprietario = proprietario;
     }
     
+    
      public void addLocacao(Locacao locacao) {
+         
         locacoes.add(locacao);
+        locacao.setVeiculo(this);
         
     }
 

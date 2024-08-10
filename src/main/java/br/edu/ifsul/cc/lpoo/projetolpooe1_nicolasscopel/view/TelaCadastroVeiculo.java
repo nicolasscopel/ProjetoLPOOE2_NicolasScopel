@@ -63,7 +63,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         lstVeiculos = new javax.swing.JList<>();
         btnNovoVeiculo = new javax.swing.JButton();
         btnEditarVeiculo = new javax.swing.JButton();
-        btnRemoverVeiculo = new javax.swing.JButton();
+        btnExcluirVeiculo = new javax.swing.JButton();
         btnCancelarVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,7 +71,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("TELA CADASTRO VEÍCULO");
 
-        jLabel2.setText("Pesquisar via Nome:");
+        jLabel2.setText("Pesquisar Veículo via Nome:");
 
         txtBuscaNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -98,10 +98,10 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             }
         });
 
-        btnRemoverVeiculo.setText("Remover");
-        btnRemoverVeiculo.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluirVeiculo.setText("Excluir");
+        btnExcluirVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverVeiculoActionPerformed(evt);
+                btnExcluirVeiculoActionPerformed(evt);
             }
         });
 
@@ -121,15 +121,15 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(btnEditarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
-                .addComponent(btnRemoverVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExcluirVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(btnCancelarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
                         .addComponent(txtBuscaNome))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)))
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -159,7 +159,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovoVeiculo)
                     .addComponent(btnEditarVeiculo)
-                    .addComponent(btnRemoverVeiculo)
+                    .addComponent(btnExcluirVeiculo)
                     .addComponent(btnCancelarVeiculo))
                 .addGap(25, 25, 25))
         );
@@ -200,7 +200,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         listarVeiculos();
     }//GEN-LAST:event_btnNovoVeiculoActionPerformed
 
-    private void btnRemoverVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverVeiculoActionPerformed
+    private void btnExcluirVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirVeiculoActionPerformed
         
         // TODO add your handling code here:
         Veiculo veiculoSelecionado = lstVeiculos.getSelectedValue();
@@ -229,7 +229,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "Nenhum veiculo selecionado! ");
         }
-    }//GEN-LAST:event_btnRemoverVeiculoActionPerformed
+    }//GEN-LAST:event_btnExcluirVeiculoActionPerformed
 
     private void btnEditarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarVeiculoActionPerformed
         
@@ -287,8 +287,8 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelarVeiculo;
     private javax.swing.JButton btnEditarVeiculo;
+    private javax.swing.JButton btnExcluirVeiculo;
     private javax.swing.JButton btnNovoVeiculo;
-    private javax.swing.JButton btnRemoverVeiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -4,6 +4,7 @@
  */
 package br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.dao;
 
+import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Locacao;
 import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Proprietario;
 import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Veiculo;
 import java.util.List;
@@ -147,6 +148,37 @@ public class PersistenciaJPA implements InterfacePersistencia {
                             "SELECT m FROM Veiculo m WHERE LOWER(m.modelo) LIKE :modelo", 
                             Veiculo.class);
             query.setParameter("modelo", "%" + texto.toLowerCase() + "%");
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    
+    //GET COMPLETO
+    public List<Locacao> getLocacoes() {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Locacao> query = 
+                    em.createQuery("SELECT m FROM Locacao m", 
+                            Locacao.class);
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    //ALTERADO PARA PEGAR O MODELO
+    public List<Locacao> getLocacoes(String texto) {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Locacao> query = 
+                    em.createQuery(
+                            "SELECT m FROM Locacao m WHERE LOWER(m.veiculo.modelo) LIKE :veiculo", 
+                            Locacao.class);
+            query.setParameter("veiculo", "%" + texto.toLowerCase() + "%");
             return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
