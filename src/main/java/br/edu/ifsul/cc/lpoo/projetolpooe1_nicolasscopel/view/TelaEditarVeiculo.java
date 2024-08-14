@@ -228,6 +228,12 @@ public class TelaEditarVeiculo extends javax.swing.JDialog {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
            jpa = new PersistenciaJPA();
+           
+           if(txtAnoVeiculo.getText().length() != 4 || txtModeloVeiculo.getText().length() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Informações Informadas Incorretamente");
+            dispose(); 
+        }else{
+               
              
             try { 
 
@@ -241,17 +247,15 @@ public class TelaEditarVeiculo extends javax.swing.JDialog {
                editado.setProprietario((Proprietario)comboProprietarioVeiculo.getSelectedItem());
                
                 jpa.persist(editado);
-                jpa.fecharConexao();
-                dispose();
-                
-            } catch (Exception ex) {
-                System.out.println("Erro"); 
-                jpa.fecharConexao();
-                dispose();
-            }
+                } catch (Exception ex) {
+                   System.out.println("Erro: " + ex.getMessage());
+               } finally {
+                   jpa.fecharConexao();
+                   dispose();
+               }
             
              
-
+           }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

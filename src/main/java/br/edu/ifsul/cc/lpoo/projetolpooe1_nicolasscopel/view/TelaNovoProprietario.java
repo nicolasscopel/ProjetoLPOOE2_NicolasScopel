@@ -6,6 +6,7 @@ package br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.view;
 
 import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.dao.PersistenciaJPA;
 import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Proprietario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -162,6 +163,13 @@ public class TelaNovoProprietario extends javax.swing.JDialog {
        
        Proprietario novo = new Proprietario();
        
+       //PODERIA SER VERIFICADO TODOS OS CAMPOSW
+       if(txtNome.getText().length() == 0 || txtCPF.getText().length() != 11 || txtRG.getText().length() != 10){
+           JOptionPane.showMessageDialog(rootPane, "Informações Informadas Incorretamente");
+           dispose();
+           
+       }else{
+       
        novo.setNome(txtNome.getText());
        novo.setCpf(txtCPF.getText());
        novo.setRg(txtRG.getText());
@@ -179,7 +187,7 @@ public class TelaNovoProprietario extends javax.swing.JDialog {
         }
         jpa.fecharConexao();
         
-        
+       } 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

@@ -186,6 +186,13 @@ public class TelaEditarProprietario extends javax.swing.JDialog {
                 jpa.conexaoAberta();
                 Proprietario editado = (Proprietario)jpa.find(Proprietario.class, proprietario.getId());
                 
+                if (txtNome.getText().length() == 0 || txtCPF.getText().length() != 11 || txtRG.getText().length() != 10) {
+                    JOptionPane.showMessageDialog(rootPane, "Informações Alteradas Incorretamente");
+                    dispose();
+                    jpa.fecharConexao();
+
+                }else{
+                
                editado.setNome(txtNome.getText());
                editado.setCpf(txtCPF.getText());
                editado.setRg(txtRG.getText());
@@ -195,11 +202,12 @@ public class TelaEditarProprietario extends javax.swing.JDialog {
                 jpa.persist(editado);
                 jpa.fecharConexao();
                 dispose();
-                
+                }
             } catch (Exception ex) {
                 System.out.println("Erro");
                 dispose();
             }
+            
        
     }//GEN-LAST:event_btnSalvarActionPerformed
 

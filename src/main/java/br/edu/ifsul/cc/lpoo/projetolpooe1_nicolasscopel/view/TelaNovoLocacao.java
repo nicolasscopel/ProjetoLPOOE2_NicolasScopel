@@ -14,6 +14,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 import javax.swing.text.html.HTML;
 
 /**
@@ -187,7 +188,11 @@ public class TelaNovoLocacao extends javax.swing.JDialog {
         Calendar dataSaidaCal = Calendar.getInstance();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); // Formato da data (ajuste conforme necessário)
 
-        
+        if(txtVagaLocacao.getText().length() == 0 || txtDataEntradaLocacao.getText().length() < 6){
+             JOptionPane.showMessageDialog(rootPane, "Informações Informadas Incorretamente");
+             dispose(); 
+        }else{
+            
         nova.setNumeroVaga(txtVagaLocacao.getText());
         
         try {
@@ -196,25 +201,20 @@ public class TelaNovoLocacao extends javax.swing.JDialog {
         } catch (Exception ex) {
         }
         
-        if(dataSaidaCal != null){
+        if(dataEntrada != null){
             nova.setDataEntrada(dataEntradaCal);
         }
-        if(dataSaidaCal != null){
+        if(dataSaida != null){
             nova.setDataSaida(dataSaidaCal);
         }
         
         nova.setVeiculo((Veiculo)comboVeiculoLocacao.getSelectedItem());
         
-       
-
          try{
              
             jpa.conexaoAberta();
-            
-            
             //PERSISTINDO LOCAÇÃO
             jpa.persist(nova);
-            
             
             System.out.println("Locacao do veiculo " + nova.getVeiculo().getModelo() + " adicionado!");
             dispose();
@@ -223,8 +223,9 @@ public class TelaNovoLocacao extends javax.swing.JDialog {
             dispose();
         }
       
-        
         jpa.fecharConexao();
+        
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

@@ -10,6 +10,7 @@ import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Marca;
 import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Proprietario;
 import br.edu.ifsul.cc.lpoo.projetolpooe1_nicolasscopel.model.Veiculo;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -217,9 +218,14 @@ public class TelaNovoVeiculo extends javax.swing.JDialog {
         
         Veiculo veiculo = new Veiculo();
         
+        //NÃO VERIFICA O COMBO POIS OBRIGATORIAMENTE UM É SETADO JÁ
+        if(txtAnoVeiculo.getText().length() != 4 || txtModeloVeiculo.getText().length() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Informações Informadas Incorretamente");
+            dispose(); 
+        }else{
+            
         veiculo.setAno(txtAnoVeiculo.getText());
         veiculo.setModelo(txtModeloVeiculo.getText());
-        
         veiculo.setCor((Cor)comboCorVeiculo.getSelectedItem());
         veiculo.setMarca((Marca)comboMarcaVeiculo.getSelectedItem());
         veiculo.setProprietario((Proprietario)comboProprietarioVeiculo.getSelectedItem());
@@ -230,12 +236,12 @@ public class TelaNovoVeiculo extends javax.swing.JDialog {
             System.out.println("Veiculo " + txtModeloVeiculo.getText() + " adicionado!");
             dispose();
         }catch(Exception ex){
-            System.out.println("Erro ao adicionar proprietario");
+            System.out.println("Erro ao adicionar veiculo");
             dispose();
         }
         
         jpa.fecharConexao();
-        
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

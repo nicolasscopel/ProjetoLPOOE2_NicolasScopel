@@ -46,24 +46,6 @@ public class TelaEditarLocacao extends javax.swing.JDialog {
         this.locacao = locacao;
         if (locacao != null) {
             
-            String dataEntrada = txtDataEntradaLocacao.getText();
-            String dataSaida = txtDataSaidaLocacao.getText();
-            Calendar dataEntradaCal = Calendar.getInstance();
-            Calendar dataSaidaCal = Calendar.getInstance();
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); // Formato da data (ajuste conforme necessário)
-            
-            try {
-                   dataEntradaCal.setTime(formato.parse(dataEntrada));
-                    dataSaidaCal.setTime(formato.parse(dataSaida));
-                } catch (Exception ex) {
-                 }
-        
-                if(dataSaidaCal != null){
-                     locacao.setDataEntrada(dataEntradaCal);
-                }
-                if(dataSaidaCal != null){
-                locacao.setDataSaida(dataSaidaCal);
-                }
             
             txtVagaLocacao.setText(locacao.getNumeroVaga());
             
@@ -209,6 +191,7 @@ public class TelaEditarLocacao extends javax.swing.JDialog {
         jpa = new PersistenciaJPA();
              
         Calendar dataEntradaEditadaCal = Calendar.getInstance();
+        
         Calendar dataSaidaEditadaCal = Calendar.getInstance();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); // Formato da data (ajuste conforme necessário)
         
@@ -217,11 +200,14 @@ public class TelaEditarLocacao extends javax.swing.JDialog {
                 jpa.conexaoAberta();
                 Locacao editado = (Locacao)jpa.find(Locacao.class, locacao.getId());
            
-                try {
-                   dataEntradaEditadaCal.setTime(formato.parse(txtDataEntradaLocacao.getText()));
+                
+                dataEntradaEditadaCal.setTime(formato.parse(txtDataEntradaLocacao.getText()));
+                
+                if(txtDataSaidaLocacao.getText().length() != 0){
                     dataSaidaEditadaCal.setTime(formato.parse(txtDataSaidaLocacao.getText()));
-                } catch (Exception ex) {
-                 }
+                }
+                
+
                 
                 editado.setNumeroVaga(txtVagaLocacao.getText());
                 editado.setDataEntrada(dataEntradaEditadaCal);
@@ -230,14 +216,13 @@ public class TelaEditarLocacao extends javax.swing.JDialog {
                 
       
                 jpa.persist(editado);
-                jpa.fecharConexao();
-                dispose();
                 
-            } catch (Exception ex) {
-                System.out.println("Erro"); 
-                jpa.fecharConexao();
-                dispose();
-            }
+               } catch (Exception ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } finally {
+            jpa.fecharConexao();
+            dispose();
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
